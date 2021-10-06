@@ -32,6 +32,14 @@ body {
 
   padding: 0;
   margin: 0;
+  /* мой личный reset */
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* шапка */
@@ -47,7 +55,7 @@ body {
   padding-right: 15px;
   /* height: 80px; - динамическая*/
   margin: 0 auto;
-  /* потом убрать */
+  /* после оформления убрать */
   outline: 2px solid tomato;
 }
 
@@ -60,7 +68,6 @@ body {
   line-height: 1.19;
   text-decoration: none;
 }
-/* если нужно */
 .logo:hover,
 .logo:focus,
 .footer .logo:hover,
@@ -108,11 +115,18 @@ body {
   text-transform: uppercase;
 
   width: 696px;
-  margin: 0 auto 30px;
-  /* margin-top: 0;
-  margin-bottom: 30px; */
-  /* потом убрать */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  /* можно заменить margin: 0 auto 30px; */
+  /* после оформления убрать */
   outline: 1px solid tomato;
+}
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+  /* после оформления убрать */
+  background-color: yellowgreen;
 }
 /* section НУЖНО скрыть заголовок во 2-й секции*/
 .section-title {
@@ -120,7 +134,6 @@ body {
   font-size: 36px;
   line-height: 1.17;
 
-  margin-top: 0;
   margin-bottom: 50px;
 }
 /* features */
@@ -129,10 +142,18 @@ body {
   font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
+
+  margin-bottom: 10px;
 }
 .features .text {
   font-size: 14px;
   line-height: 1.71;
+}
+/* work */
+.section.work {
+  padding-top: 0;
+  /* после оформления убрать */
+  background-color: wheat;
 }
 /* team */
 .team {
@@ -145,6 +166,9 @@ body {
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 16px;
+
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 /* button */
