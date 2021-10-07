@@ -19,22 +19,22 @@
 }
 
 body {
+  background-color: var(--primary-white-color);
+
   color: var(--primary-text-color);
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.03em;
-
-  background-color: var(--primary-white-color);
 }
 .accent {
   color: var(--accent-color);
 }
 .list {
-  list-style: none;
-
   padding: 0;
   margin: 0;
-  /* мой личный reset */
+
+  list-style: none;
 }
+/* мой личный reset */
 h1,
 h2,
 h3,
@@ -53,7 +53,13 @@ p {
   padding-left: 15px;
   padding-right: 15px;
   /* height: 80px; - динамическая*/
-  margin: 0 auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: 0 auto; - тоже самое, 
+  только это составное свойство и 
+  Репета НЕ рекомендует! */
   /* после оформления убрать */
   outline: 2px solid tomato;
 }
@@ -79,8 +85,28 @@ p {
   letter-spacing: 0.02em;
   text-decoration: none;
 }
-/* site nav */
+/* menu nav */
+.menu-nav {
+  display: flex;
+}
+/* 1-й вариант - удобный */
+.menu-nav .item + .item {
+  margin-left: 50px;
+  /* после оформления убрать */
+  outline: 2px solid tomato;
+  background-color: greenyellow;
+}
+/*  .menu-nav .item:not(:last-child) {
+  margin-right: 50px;
+} 2-й вариант современный, но сложный*/
+/* .menu-nav .item:last-child {
+  margin-right: 0;
+} 3-й вариант дать дополнительный селектор  */
 .menu-nav .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   color: var(--title-text-color);
   font-weight: 500;
 }
@@ -106,13 +132,6 @@ p {
   background-color: var(--dark-bg-color);
 }
 .hero-title {
-  color: var(--primary-white-color);
-  font-weight: 900;
-  font-size: 44px;
-  line-height: 1.36;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-
   width: 696px;
   margin-left: auto;
   margin-right: auto;
@@ -120,6 +139,13 @@ p {
   /* можно заменить margin: 0 auto 30px; */
   /* после оформления убрать */
   outline: 1px solid tomato;
+
+  color: var(--primary-white-color);
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 .section {
   padding-top: 94px;
@@ -129,20 +155,20 @@ p {
 }
 /* section НУЖНО скрыть заголовок во 2-й секции*/
 .section-title {
+  margin-bottom: 50px;
+
   color: var(--title-text-color);
   font-size: 36px;
   line-height: 1.17;
-
-  margin-bottom: 50px;
 }
 /* features */
 .features .title {
+  margin-bottom: 10px;
+
   color: var(--title-text-color);
   font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
-
-  margin-bottom: 10px;
 }
 .features .text {
   font-size: 14px;
@@ -156,18 +182,18 @@ p {
 }
 /* team */
 .team {
+  background-color: var(--bright-bg-color);
+
   font-size: 16px;
   line-height: 1.19;
-
-  background-color: var(--bright-bg-color);
 }
 .team .title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 16px;
-
-  margin-top: 30px;
-  margin-bottom: 10px;
 }
 /* (надо ли?) */
 /* .team .text {
@@ -176,26 +202,32 @@ p {
 
 /* button */
 .button {
+  border: transparent;
+  border-radius: 4px;
+
   /* т.к. есть normalize, то
    font-family: inherit; уже не надо*/
   text-decoration: none;
   cursor: pointer;
-
-  border: transparent;
-  border-radius: 4px;
 }
 .button.primary {
+  background-color: var(--accent-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 32px;
+  padding-right: 32px;
+  /* padding: 10px 32px; - тоже самое, 
+  только это составное свойства и 
+  Репета НЕ рекомендует!*/
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  /* если надо */
+  min-width: 200px;
+
   color: var(--primary-white-color);
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
   letter-spacing: 0.06em;
-
-  background-color: var(--accent-color);
-  padding: 10px 32px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  /* если надо */
-  min-width: 200px;
 }
 .button.primary:hover,
 .button.primary:focus {
@@ -204,33 +236,39 @@ p {
 
 /* Стили для portfolio.html */
 .button.secondary {
+  background-color: var(--bright-bg-color);
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 22px;
+  padding-right: 22px;
+  /* padding: 6px 22px; - тоже самое, 
+  только это составное свойства и 
+  Репета НЕ рекомендует! */
+
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
-
-  background-color: var(--bright-bg-color);
-  padding: 6px 22px;
 }
 .button.secondary:hover,
 .button.secondary:focus {
-  color: var(--primary-white-color);
-
   background-color: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+
+  color: var(--primary-white-color);
 }
 .filter {
   margin-bottom: 50px;
 }
 .portfolio .title {
+  margin-top: 20px;
+  margin-bottom: 4px;
+
   color: var(--title-text-color);
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
-
-  margin-top: 20px;
-  margin-bottom: 4px;
 }
 .portfolio .text {
   color: var(--primary-text-color);
@@ -243,12 +281,12 @@ p {
 
 /* footer */
 .footer {
-  font-size: 14px;
-  line-height: 1.71;
-
   background-color: var(--dark-bg-color);
   padding-top: 60px;
   padding-bottom: 60px;
+
+  font-size: 14px;
+  line-height: 1.71;
 }
 .footer .logo {
   color: var(--primary-white-color);
