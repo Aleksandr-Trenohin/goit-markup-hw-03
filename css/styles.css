@@ -17,7 +17,6 @@
   --bright-bg-color: #f5f4fa;
   --dark-bg-color: #2f303a;
 }
-
 body {
   background-color: var(--primary-white-color);
 
@@ -34,6 +33,48 @@ body {
 
   list-style: none;
 }
+.link {
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+/* section */
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+  /* после оформления убрать */
+  background-color: lightpink;
+}
+.section-title {
+  margin-bottom: 50px;
+
+  color: var(--title-text-color);
+  font-size: 36px;
+  line-height: 1.17;
+}
+/* button или btn */
+.button {
+  border: transparent;
+  border-radius: 4px;
+
+  /* т.к. есть normalize, то
+   font-family: inherit; уже не надо*/
+  text-decoration: none;
+  cursor: pointer;
+}
 /* мой личный reset */
 h1,
 h2,
@@ -41,12 +82,6 @@ h3,
 p {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-/* шапка */
-.page-header {
-  /* после оформления убрать */
-  background-color: lightgrey;
 }
 .container {
   width: 1200px;
@@ -64,6 +99,16 @@ p {
   outline: 2px solid tomato;
 }
 
+/* шапка */
+.page-header {
+  /* после оформления убрать */
+  background-color: lightgrey;
+}
+/* main nav */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
 /* logo */
 .logo {
   color: var(--primary-black-color);
@@ -73,18 +118,14 @@ p {
   line-height: 1.19;
   text-decoration: none;
 }
-.logo:hover,
-.logo:focus,
-.footer .logo:hover,
-.footer .logo:focus {
+.page-header .logo {
+  margin-right: 93px;
+}
+/* .logo:hover,
+.logo:focus {
   color: var(--accent-color);
-}
-.link {
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-}
+}  а надо ли?*/
+
 /* menu nav */
 .menu-nav {
   display: flex;
@@ -94,7 +135,7 @@ p {
   margin-left: 50px;
   /* после оформления убрать */
   outline: 2px solid tomato;
-  background-color: greenyellow;
+  background-color: lightpink;
 }
 /*  .menu-nav .item:not(:last-child) {
   margin-right: 50px;
@@ -113,15 +154,32 @@ p {
 .menu-nav .link.current {
   color: var(--accent-color);
 }
+.menu-nav .link:hover,
+.menu-nav .link:focus {
+  color: var(--accent-color);
+}
 /* contacts */
-.contacts .link {
+.header-contacts {
+  display: flex;
+  margin-left: auto;
+}
+.header-contacts .item + .item {
+  margin-left: 50px;
+  /* после оформления убрать */
+  outline: 2px solid tomato;
+  background-color: gold;
+}
+.header-contacts .link {
+  display: block;
+  /*  уже задано в menu-nav */
+  /* padding-top: 32px;
+  padding-bottom: 32px; */
+
   color: var(--primary-text-color);
   font-weight: 500;
 }
-.contacts .link:hover,
-.contacts .link:focus,
-.menu-nav .link:hover,
-.menu-nav .link:focus {
+.header-contacts .link:hover,
+.header-contacts .link:focus {
   color: var(--accent-color);
 }
 
@@ -147,21 +205,36 @@ p {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.section {
-  padding-top: 94px;
-  padding-bottom: 94px;
-  /* после оформления убрать */
-  background-color: yellowgreen;
-}
-/* section НУЖНО скрыть заголовок во 2-й секции*/
-.section-title {
-  margin-bottom: 50px;
+.button.primary {
+  background-color: var(--accent-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 32px;
+  padding-right: 32px;
+  /* padding: 10px 32px; - тоже самое, 
+  только это составное свойства и 
+  Репета НЕ рекомендует!*/
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  /* если надо */
+  min-width: 200px;
 
-  color: var(--title-text-color);
-  font-size: 36px;
-  line-height: 1.17;
+  color: var(--primary-white-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+}
+.button.primary:hover,
+.button.primary:focus {
+  background-color: #188ce8;
 }
 /* features */
+.features {
+  display: flex;
+}
+.features .item + .item {
+  margin-left: 30px;
+}
 .features .title {
   margin-bottom: 10px;
 
@@ -171,6 +244,9 @@ p {
   text-transform: uppercase;
 }
 .features .text {
+  /* после оформления скрыть */
+  outline: 3px solid teal;
+
   font-size: 14px;
   line-height: 1.71;
 }
@@ -200,41 +276,11 @@ p {
   margin-bottom: 30px;
 } */
 
-/* button */
-.button {
-  border: transparent;
-  border-radius: 4px;
-
-  /* т.к. есть normalize, то
-   font-family: inherit; уже не надо*/
-  text-decoration: none;
-  cursor: pointer;
-}
-.button.primary {
-  background-color: var(--accent-color);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 32px;
-  padding-right: 32px;
-  /* padding: 10px 32px; - тоже самое, 
-  только это составное свойства и 
-  Репета НЕ рекомендует!*/
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  /* если надо */
-  min-width: 200px;
-
-  color: var(--primary-white-color);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-}
-.button.primary:hover,
-.button.primary:focus {
-  background-color: #188ce8;
-}
-
 /* Стили для portfolio.html */
+/* filters */
+.filters {
+  margin-bottom: 50px;
+}
 .button.secondary {
   background-color: var(--bright-bg-color);
   padding-top: 6px;
@@ -258,8 +304,16 @@ p {
 
   color: var(--primary-white-color);
 }
-.filter {
-  margin-bottom: 50px;
+/* portfolio */
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+}
+.portfolio .item:nth-child(3n + 1) {
+  margin-right: 30px;
+}
+.portfolio .item:nth-child(3n + 3) {
+  margin-left: 30px;
 }
 .portfolio .title {
   margin-top: 20px;
@@ -275,9 +329,6 @@ p {
   font-size: 16px;
   line-height: 1.87;
 }
-.section .link {
-  text-decoration: none;
-}
 
 /* footer */
 .footer {
@@ -291,26 +342,30 @@ p {
 .footer .logo {
   color: var(--primary-white-color);
 }
+/* .footer .logo:hover,
+.footer .logo:focus {
+  color: var(--accent-color);
+} а надо ли?*/
+
+/* address */
 .address {
   margin-top: 20px;
   /* margin-bottom: 60px; */
-}
-.address .contacts {
-  padding-top: 9px;
-}
-.footer .address,
-.footer .contacts {
+
   font-style: normal;
-  text-decoration: none;
+}
+.address-link {
   color: var(--primary-white-color);
 }
-.footer .contacts {
+.address-contacts {
+  padding-top: 9px;
+
   color: rgba(255, 255, 255, 0.6);
 }
-.footer .address:hover,
-.footer .address:focus,
-.footer .contacts:hover,
-.footer .contacts:focus {
+.address-link:hover,
+.address-link:focus,
+.address-contacts:hover,
+.address-contacts:focus {
   color: var(--accent-color);
 }
 
